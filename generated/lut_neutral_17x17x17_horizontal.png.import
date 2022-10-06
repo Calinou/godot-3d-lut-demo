@@ -1,0 +1,26 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://bltpkc15qgxdu"
+path="res://.godot/imported/lut_neutral_17x17x17_horizontal.png-e7b79b75e8939dc107e83184170a765a.ctex3d"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://generated/lut_neutral_17x17x17_horizontal.png"
+dest_files=["res://.godot/imported/lut_neutral_17x17x17_horizontal.png-e7b79b75e8939dc107e83184170a765a.ctex3d"]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=17
+slices/vertical=1

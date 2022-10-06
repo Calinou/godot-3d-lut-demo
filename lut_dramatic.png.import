@@ -1,0 +1,26 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://c6xhnhtelbuox"
+path="res://.godot/imported/lut_dramatic.png-eace9591a84e05e5f3650c7ffedb83ce.ctex3d"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://lut_dramatic.png"
+dest_files=["res://.godot/imported/lut_dramatic.png-eace9591a84e05e5f3650c7ffedb83ce.ctex3d"]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=33
+slices/vertical=1

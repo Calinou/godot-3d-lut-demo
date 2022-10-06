@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6drsos1flte0"]
+
+[ext_resource type="Script" path="res://node_3d.gd" id="1_1h8k8"]
+[ext_resource type="CompressedTexture3D" uid="uid://c6xhnhtelbuox" path="res://lut_dramatic.png" id="2_2koui"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dk5qn"]
+fractal_octaves = 4
+fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_beko5"]
+noise = SubResource("FastNoiseLite_dk5qn")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ng22l"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_tvnr7"]
+sky_material = SubResource("ProceduralSkyMaterial_ng22l")
+
+[sub_resource type="Environment" id="Environment_dg3fa"]
+background_mode = 2
+sky = SubResource("Sky_tvnr7")
+tonemap_mode = 3
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+glow_strength = 1.2
+glow_bloom = 0.01
+glow_blend_mode = 0
+glow_map = SubResource("NoiseTexture2D_beko5")
+fog_density = 0.02
+fog_sky_affect = 0.0
+volumetric_fog_enabled = true
+adjustment_enabled = true
+adjustment_color_correction = ExtResource("2_2koui")
+
+[sub_resource type="BoxMesh" id="BoxMesh_hdur0"]
+size = Vector3(1024, 1, 1024)
+
+[sub_resource type="TorusMesh" id="TorusMesh_id6ee"]
+
+[node name="Node3d" type="Node3D"]
+script = ExtResource("1_1h8k8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dg3fa")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.14602, -0.419831, -0.895779, -0.853626, -0.511118, 0.100401, -0.5, 0.75, -0.433012, 0, 0, 0)
+shadow_enabled = true
+shadow_normal_bias = 3.0
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 25.0
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hdur0")
+
+[node name="MeshInstance3d2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519776, 0)
+mesh = SubResource("TorusMesh_id6ee")
+
+[node name="MeshInstance3d3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701794, 0.801426, 0)
+mesh = SubResource("TorusMesh_id6ee")
+
+[node name="MeshInstance3d4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38532, 1.22396, 0)
+mesh = SubResource("TorusMesh_id6ee")
+
+[node name="MeshInstance3d5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26684, 0.678499, 0)
+mesh = SubResource("TorusMesh_id6ee")
+
+[node name="OmniLight3d" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70728, 0.764297, 1.79748)
+light_color = Color(1, 0.14902, 0.156863, 1)
+
+[node name="OmniLight3d2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21531, 1.38749, 1.44447)
+light_color = Color(0.309804, 0.627451, 0.439216, 1)
+
+[node name="OmniLight3d3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17539, 1.38749, 1.38069)
+light_color = Color(0.564706, 0.466667, 0.894118, 1)
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(0.976672, 0.0468431, -0.209564, 0, 0.975917, 0.218143, 0.214735, -0.213054, 0.953151, 0.386, 1.8, 3.8)
+fov = 60.0
