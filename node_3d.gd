@@ -2,8 +2,7 @@ extends Node3D
 
 
 func create_neutral_lut(p_name: String, p_size: int, p_vertical: bool):
-	var image = Image.new()
-	image.create(
+	var image = Image.create(
 			p_size if p_vertical else (p_size * p_size),
 			(p_size * p_size) if p_vertical else p_size,
 			false,
